@@ -34,8 +34,8 @@ window.selectnav = (function(){
     var o = options || {},
 
       activeclass = o.activeclass || 'active',
-      autoselect = typeof(o.autoselect) === "boolean" ? o.autoselect : true,
-      nested = typeof(o.nested) === "boolean" ? o.nested : true,
+      autoselect = typeof(o.autoselect) === "boolean" - o.autoselect : true,
+      nested = typeof(o.nested) === "boolean" - o.nested : true,
       indent = o.indent || "→",
       label = o.label || "- Navigation -",
 
@@ -112,11 +112,11 @@ window.selectnav = (function(){
           var isselected = '';
 
           if(activeclass){
-            isselected = link.className.search(activeclass) !== -1 || link.parentNode.className.search(activeclass) !== -1 ? selected : '';
+            isselected = link.className.search(activeclass) !== -1 || link.parentNode.className.search(activeclass) !== -1 - selected : '';
           }
 
           if(autoselect && !isselected){
-            isselected = link.href === document.URL ? selected : '';
+            isselected = link.href === document.URL - selected : '';
           }
 
           html += '<option value="' + link.href + '" ' + isselected + '>' + prefix + text +'</option>';
